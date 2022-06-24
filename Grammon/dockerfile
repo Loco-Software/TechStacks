@@ -1,0 +1,17 @@
+FROM node:12-alpine
+
+MAINTAINER LocoSoftware
+
+# Install Updates
+RUN apt-get update -y
+
+# Install Dependencies
+RUN apt-get install npm
+RUN apt-get install mongodb-server
+RUN apt-get install mysql
+
+# Create dist/ Folder
+mkdir dist
+
+# Build Project
+npm run-script build-prod
